@@ -1,0 +1,14 @@
+CLUSTER ARCHITECTURE
+
+Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. Its architecture is designed to provide a flexible and scalable framework for managing containerized workloads.
+Main Components of cluster Architecture
+1.	Master Node-Control Plane 
+a.	API Server: Central management entity that exposes the Kubernetes API, which allows users to interact with the cluster.
+b.	Scheduler: Assigns newly created pods (groups of containers) to nodes based on resource availability and workload requirements.
+c.	Controller Manager: Monitors the state of the cluster and ensures that the desired state matches the actual state. It includes various controllers for tasks such as node management, endpoint controller, service account, etc.
+d.	etcd: Consistent and highly-available key-value store used as Kubernetes' backing store for all cluster data (e.g., configuration data, state data, metadata).
+Worker Nodes (Minions):
+a.	Kubelet: An agent that runs on each node in the cluster and is responsible for managing the containers on that node. It interacts with the API server to receive instructions such as starting, stopping, and maintaining application containers.
+b.	Container Runtime: Software responsible for running containers, such as Docker or containerd.
+c.	Kube Proxy: Maintains network rules on the node and performs connection forwarding (e.g., load balancing, routing) between external networks and the pods.
+Kubernetes follows a declarative model, where users specify the desired state of their applications and Kubernetes takes care of making the current state match the desired state which is similar to docker run command specifiying name, mount, network and any other arguments. This architecture provides flexibility, scalability, and resilience for deploying and managing containerized applications at scale.
